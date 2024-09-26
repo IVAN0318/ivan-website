@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>寵物健康管理問卷調查</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>寵物健康管理問卷調查</h1>
+    <p>感謝您參與我們的寵物健康管理調查。您的回答將幫助我們更好地了解寵物主人的需求和關注點。</p>
+    
+    <form id="petSurvey">
+        <section>
+            <h2>基本資料</h2>
+            <label>您的寵物類型是？（可多選）</label>
+            <div class="checkbox-group">
+                <input type="checkbox" id="dog" name="petType" value="dog">
+                <label for="dog">狗</label>
+                <input type="checkbox" id="cat" name="petType" value="cat">
+                <label for="cat">貓</label>
+                <input type="checkbox" id="otherPet" name="petType" value="other">
+                <label for="otherPet">其他</label>
+            </div>
+
+            <label for="petAge">您的寵物年齡是？</label>
+            <select id="petAge" name="petAge" required>
+                <option value="">請選擇</option>
+                <option value="0-1">0-1 年</option>
+                <option value="2-4">2-4 年</option>
+                <option value="5-7">5-7 年</option>
+                <option value="8+">8 年及以上</option>
+            </select>
+
+            <label for="healthStatus">您的寵物目前的健康狀況如何？</label>
+            <select id="healthStatus" name="healthStatus" required>
+                <option value="">請選擇</option>
+                <option value="veryHealthy">非常健康</option>
+                <option value="occasionalIllness">偶爾有小病</option>
+                <option value="chronicDisease">有慢性病</option>
+                <option value="seriousHealthIssues">有嚴重健康問題</option>
+            </select>
+
+            <label>您的寵物是否有過以下健康問題？（可多選）</label>
+            <div class="checkbox-group">
+                <input type="checkbox" id="digestive" name="healthIssues" value="digestive">
+                <label for="digestive">腸胃問題</label>
+                <input type="checkbox" id="skin" name="healthIssues" value="skin">
+                <label for="skin">皮膚問題（如過敏、瘙癢）</label>
+                <input type="checkbox" id="joint" name="healthIssues" value="joint">
+                <label for="joint">關節問題</label>
+                <input type="checkbox" id="dental" name="healthIssues" value="dental">
+                <label for="dental">牙齒或口腔健康問題</label>
+                <input type="checkbox" id="obesity" name="healthIssues" value="obesity">
+                <label for="obesity">肥胖或體重問題</label>
+                <input type="checkbox" id="organIssues" name="healthIssues" value="organIssues">
+                <label for="organIssues">腎臟或肝臟問題</label>
+                <input type="checkbox" id="noIssues" name="healthIssues" value="noIssues">
+                <label for="noIssues">無</label>
+            </div>
+        </section>
+
+        <section>
+            <h2>寵物健康管理與日常照護</h2>
+            <label for="vetVisit">您多久帶寵物去看一次獸醫？</label>
+            <select id="vetVisit" name="vetVisit" required>
+                <option value="">請選擇</option>
+                <option value="annually">每年一次</option>
+                <option value="biannually">每半年一次</option>
+                <option value="asNeeded">根據需要才去</option>
+                <option value="rarely">很少或從不去</option>
+            </select>
+
+            <label>您是否曾進行過以下寵物健康檢查？（可多選）</label>
+            <div class="checkbox-group">
+                <input type="checkbox" id="bloodTest" name="healthChecks" value="bloodTest">
+                <label for="bloodTest">血液檢測</label>
+                <input type="checkbox" id="geneticTest" name="healthChecks" value="geneticTest">
+                <label for="geneticTest">基因測試</label>
+                <input type="checkbox" id="fecalTest" name="healthChecks" value="fecalTest">
+                <label for="fecalTest">糞便檢測</label>
+                <input type="checkbox" id="allergyTest" name="healthChecks" value="allergyTest">
+                <label for="allergyTest">皮膚過敏測試</label>
+            </div>
+
+            <label for="testInterest">您對於基因測試或腸道健康測試的興趣如何？</label>
+            <select id="testInterest" name="testInterest" required>
+                <option value="">請選擇</option>
+                <option value="veryInterested">非常感興趣</option>
+                <option value="maybeInterested">可能會考慮</option>
+                <option value="notInterested">不太感興趣</option>
+                <option value="notInterestedAtAll">完全不感興趣</option>
+            </select>
+        </section>
+
+        <section>
+            <h2>寵物營養與飲食習慣</h2>
+            <label>您平時為寵物提供什麼類型的食物？（可多選）</label>
+            <div class="checkbox-group">
+                <input type="checkbox" id="dryFood" name="foodType" value="dryFood">
+                <label for="dryFood">乾糧</label>
+                <input type="checkbox" id="wetFood" name="foodType" value="wetFood">
+                <label for="wetFood">濕糧</label>
+                <input type="checkbox" id="homemade" name="foodType" value="homemade">
+                <label for="homemade">自製食物</label>
+                <input type="checkbox" id="rawFood" name="foodType" value="rawFood">
+                <label for="rawFood">生食</label>
+            </div>
+
+            <label>您是否給寵物補充以下產品？（可多選）</label>
+            <div class="checkbox-group">
+                <input type="checkbox" id="probiotics" name="supplements" value="probiotics">
+                <label for="probiotics">益生菌</label>
+                <input type="checkbox" id="vitamins" name="supplements" value="vitamins">
+                <label for="vitamins">維生素</label>
+                <input type="checkbox" id="fishOil" name="supplements" value="fishOil">
+                <label for="fishOil">魚油</label>
+                <input type="checkbox" id="jointSupplements" name="supplements" value="jointSupplements">
+                <label for="jointSupplements">關節保健品</label>
+                <input type="checkbox" id="immuneBooster" name="supplements" value="immuneBooster">
+                <label for="immuneBooster">免疫系統增強劑</label>
+            </div>
+        </section>
+
+        <section>
+            <h2>寵物老年照護</h2>
+            <label>您的寵物是否已進入老年期（7歲及以上）？</label>
+            <div class="radio-group">
+                <input type="radio" id="seniorYes" name="isSenior" value="yes" required>
+                <label for="seniorYes">是</label>
+                <input type="radio" id="seniorNo" name="isSenior" value="no">
+                <label for="seniorNo">否</label>
+            </div>
+
+            <label>您對於老年寵物健康最關心的是哪個方面？（可多選）</label>
+            <div class="checkbox-group">
+                <input type="checkbox" id="jointHealth" name="seniorConcerns" value="jointHealth">
+                <label for="jointHealth">關節健康</label>
+                <input type="checkbox" id="digestiveHealth" name="seniorConcerns" value="digestiveHealth">
+                <label for="digestiveHealth">腸道健康</label>
+                <input type="checkbox" id="immuneSystem" name="seniorConcerns" value="immuneSystem">
+                <label for="immuneSystem">免疫系統</label>
+                <input type="checkbox" id="skinAndCoat" name="seniorConcerns" value="skinAndCoat">
+                <label for="skinAndCoat">皮膚和毛髮健康</label>
+                <input type="checkbox" id="organFunction" name="seniorConcerns" value="organFunction">
+                <label for="organFunction">腎臟或肝臟功能</label>
+                <input type="checkbox" id="cancerPrevention" name="seniorConcerns" value="cancerPrevention">
+                <label for="cancerPrevention">癌症預防</label>
+            </div>
+        </section>
+
+        <section>
+            <h2>新興科技產品的接受度</h2>
+            <label>您是否聽說過或使用過以下產品/服務？（可多選）</label>
+            <div class="checkbox-group">
+                <input type="checkbox" id="geneticTesting" name="innovativeProducts" value="geneticTesting">
+                <label for="geneticTesting">寵物基因測試</label>
+                <input type="checkbox" id="gutTesting" name="innovativeProducts" value="gutTesting">
+                <label for="gutTesting">腸道健康檢測</label>
+                <input type="checkbox" id="hydrogenWater" name="innovativeProducts" value="hydrogenWater">
+                <label for="hydrogenWater">氫氣水或氫氣機</label>
+                <input type="checkbox" id="bloodTestingMachine" name="innovativeProducts" value="bloodTestingMachine">
+                <label for="bloodTestingMachine">血液檢測機器</label>
+            </div>
+
+            <label for="techAcceptance">如果有科技創新產品可以幫助改善寵物的健康問題，您是否會考慮使用？</label>
+            <select id="techAcceptance" name="techAcceptance" required>
+                <option value="">請選擇</option>
+                <option value="veryInterested">會，非常感興趣</option>
+                <option value="maybeInterested">可能會，視價格與效果</option>
+                <option value="notLikely">不太會</option>
+                <option value="definitelyNot">完全不會</option>
+            </select>
+        </section>
+
+        <section>
+            <h2>購物行為與品牌信任</h2>
+            <label>您在哪裡購買寵物健康產品？（可多選）</label>
+            <div class="checkbox-group">
+                <input type="checkbox" id="petStore" name="purchaseChannel" value="petStore">
+                <label for="petStore">實體寵物店</label>
+                <input type="checkbox" id="onlinePlatform" name="purchaseChannel" value="onlinePlatform">
+                <label for="onlinePlatform">線上購物平台</label>
+                <input type="checkbox" id="vetClinic" name="purchaseChannel" value="vetClinic">
+                <label for="vetClinic">獸醫診所</label>
+            </div>
+
+            <label>在購買寵物健康產品時，您最看重的因素是什麼？（可多選）</label>
+            <div class="checkbox-group">
+                <input type="checkbox" id="brandReputation" name="purchaseFactors" value="brandReputation">
+                <label for="brandReputation">品牌知名度</label>
+                <input type="checkbox" id="productReviews" name="purchaseFactors" value="productReviews">
+                <label for="productReviews">產品評價</label>
+                <input type="checkbox" id="vetRecommendation" name="purchaseFactors" value="vetRecommendation">
+                <label for="vetRecommendation">獸醫推薦</label>
+                <input type="checkbox" id="price" name="purchaseFactors" value="price">
+                <label for="price">價格</label>
+                <input type="checkbox" id="naturalIngredients" name="purchaseFactors" value="naturalIngredients">
+                <label for="naturalIngredients">成分是否天然、安全</label>
+                <input type="checkbox" id="effectiveness" name="purchaseFactors" value="effectiveness">
+                <label for="effectiveness">效果是否顯著</label>
+            </div>
+        </section>
+
+        <label for="comments">其他意見或建議：</label>
+        <textarea id="comments" name="comments"></textarea>
+
+        <button type="submit" id="submitButton">提交問卷</button>
+        <div id="loadingIndicator" style="display: none;">提交中...</div>
+    </form>
+
+    <section>
+        <h2>寵物健康關注度</h2>
+        <canvas id="healthConcernsChart"></canvas>
+    </section>
+
+    <div id="surveyResults" style="display: none;">
+        <h2>問卷結果摘要</h2>
+        <p>感謝您的參與！以下是目前的調查結果摘要：</p>
+        <canvas id="resultsSummaryChart"></canvas>
+    </div>
+
+    <section id="healthAssessment">
+        <h2>寵物健康評估問卷（貓狗適用）</h2>
+        <p>請根據您寵物的情況選擇最適合的選項。</p>
+        
+        <div id="assessmentQuestions">
+            <div class="question-category">
+                <h3>飲食習慣</h3>
+                <!-- 飲食相關問題將在這裡動態生成 -->
+            </div>
+            
+            <div class="question-category">
+                <h3>排泄狀況</h3>
+                <!-- 排泄相關問題將在這裡動態生成 -->
+            </div>
+            
+            <div class="question-category">
+                <h3>身體狀況</h3>
+                <!-- 身體狀況相關問題將在這裡動態生成 -->
+            </div>
+            
+            <div class="question-category">
+                <h3>活動與行為</h3>
+                <!-- 活動與行為相關問題將在這裡動態生成 -->
+            </div>
+        </div>
+
+        <button type="button" id="calculateScoreButton">計算健康評估分數</button>
+
+        <div id="assessmentResult" style="display: none;">
+            <h3>健康評估結果</h3>
+            <p id="totalScore"></p>
+            <p id="assessmentConclusion"></p>
+            <canvas id="healthScoreChart"></canvas>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
